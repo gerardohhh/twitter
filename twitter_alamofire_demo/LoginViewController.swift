@@ -11,9 +11,12 @@ import Prephirences
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var signUpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        signUpButton.layer.cornerRadius = 22.5
     }
     
     override func viewDidAppear(_ animated: Bool) {

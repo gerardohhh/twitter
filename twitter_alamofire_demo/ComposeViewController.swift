@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol ComposeViewControllerDelegate: class {
+    func did(post: Tweet)
+}
+
 class ComposeViewController: UIViewController, UITextViewDelegate {
+    
+    weak var delegate: ComposeViewControllerDelegate?
 
     @IBOutlet weak var composeTextView: UITextView!
     @IBOutlet weak var tweetButton: UIButton!
@@ -55,6 +61,11 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
             textHasBeenEdited = true
         }
         characterCountLabel.text = String(140 - composeTextView.text.characters.count)
+        if Int(characterCountLabel.text!)! < 0 {
+            characterCountLabel.textColor = UIColor.red
+        } else {
+            characterCountLabel.textColor = UIColor.darkGray
+        }
     }
     
     @IBAction func didTapScreen(_ sender: Any) {
@@ -64,6 +75,17 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     @IBAction func didTapClose(_ sender: Any) {
         self.view.endEditing(true)
         self.dismiss(animated: true)
+    }
+    
+    @IBAction func didTapPost(_ sender: Any) {
+        APIManager.shared.composeTweet(with: composeTextView.text) { (tweet, error) in
+            if let error = error {
+                print("Error composing Tweet: \(error.localizedDescription)")
+            } else if let tweet = tweet {
+                self.delegate?.did(post: tweet)
+                self.dismiss(animated: true)
+            }
+        }
     }
 
     /*
