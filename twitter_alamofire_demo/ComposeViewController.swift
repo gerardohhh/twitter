@@ -55,6 +55,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
             textHasBeenEdited = false
             composeTextView.text = "What's happening?"
             composeTextView.textColor = UIColor.darkGray
+            tweetButton.isEnabled = false
+            tweetButton.alpha = 0.7
         }
     }
     
@@ -86,6 +88,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func didTapPost(_ sender: Any) {
+        self.view.endEditing(true)
+        
         APIManager.shared.composeTweet(with: composeTextView.text) { (tweet, error) in
             if let error = error {
                 print("Error composing Tweet: \(error.localizedDescription)")
