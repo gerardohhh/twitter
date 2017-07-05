@@ -19,6 +19,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var composeTextView: UITextView!
     @IBOutlet weak var tweetButton: UIButton!
     @IBOutlet weak var characterCountLabel: UILabel!
+    @IBOutlet weak var iconImage: UIImageView!
     
     var textHasBeenEdited = false
     
@@ -26,12 +27,15 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
 
         composeTextView.delegate = self
-        
         composeTextView.text = "What's happening?"
         composeTextView.textColor = UIColor.darkGray
+        composeTextView.becomeFirstResponder()
+        
         tweetButton.layer.cornerRadius = 17.5
         
-        composeTextView.becomeFirstResponder()
+        let user = User.current
+        iconImage.layer.cornerRadius = 15
+        iconImage.af_setImage(withURL: (user?.iconURL!)!)
     }
 
     override func didReceiveMemoryWarning() {
