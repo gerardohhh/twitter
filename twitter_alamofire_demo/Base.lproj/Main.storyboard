@@ -286,25 +286,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's happening?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7hd-Oj-EZx">
-                                <rect key="frame" x="10" y="65" width="355" height="175"/>
+                                <rect key="frame" x="10" y="75" width="355" height="175"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="yne-nY-aBV"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-C9-S89">
-                                <rect key="frame" x="295" y="245" width="60" height="30"/>
-                                <color key="backgroundColor" red="0.29848086833953857" green="0.61769455671310425" blue="0.92161810398101807" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="290" y="255" width="65" height="35"/>
+                                <color key="backgroundColor" red="0.29848086829999998" green="0.61769455669999995" blue="0.92161810399999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="eTp-Jy-XrL"/>
+                                    <constraint firstAttribute="height" constant="35" id="5ES-qI-YeP"/>
+                                    <constraint firstAttribute="width" constant="65" id="eTp-Jy-XrL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Tweet">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" backgroundImage="TwitterLogoBlue"/>
                                 <connections>
                                     <action selector="didTapPost:" destination="5am-HM-3YJ" eventType="touchUpInside" id="R7e-pc-M7H"/>
                                 </connections>
@@ -322,7 +324,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAy-Jc-K2G">
-                                <rect key="frame" x="259" y="251" width="26" height="18"/>
+                                <rect key="frame" x="254" y="263.5" width="26" height="18"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -334,7 +336,7 @@
                             <constraint firstItem="fJh-C9-S89" firstAttribute="top" secondItem="7hd-Oj-EZx" secondAttribute="bottom" constant="5" id="35p-7A-xBk"/>
                             <constraint firstItem="Qm4-Mw-cWp" firstAttribute="top" secondItem="IAo-4E-JU1" secondAttribute="bottom" constant="6" id="4md-fP-YjX"/>
                             <constraint firstAttribute="trailing" secondItem="7hd-Oj-EZx" secondAttribute="trailing" constant="10" id="7gm-PL-NJK"/>
-                            <constraint firstItem="7hd-Oj-EZx" firstAttribute="top" secondItem="IAo-4E-JU1" secondAttribute="bottom" constant="45" id="N36-U6-3tD"/>
+                            <constraint firstItem="7hd-Oj-EZx" firstAttribute="top" secondItem="IAo-4E-JU1" secondAttribute="bottom" constant="55" id="N36-U6-3tD"/>
                             <constraint firstAttribute="trailing" secondItem="Qm4-Mw-cWp" secondAttribute="trailing" constant="8" id="Rku-6o-NKe"/>
                             <constraint firstItem="fJh-C9-S89" firstAttribute="leading" secondItem="PAy-Jc-K2G" secondAttribute="trailing" constant="10" id="afq-jG-kx3"/>
                             <constraint firstAttribute="trailing" secondItem="fJh-C9-S89" secondAttribute="trailing" constant="20" id="fOh-BB-TTr"/>
@@ -447,6 +449,7 @@
     </scenes>
     <resources>
         <image name="TwitterLogo" width="120" height="120"/>
+        <image name="TwitterLogoBlue" width="200" height="200"/>
         <image name="close-icon" width="26" height="24"/>
         <image name="edit-icon" width="30" height="27"/>
         <image name="favor-icon" width="30" height="30"/>

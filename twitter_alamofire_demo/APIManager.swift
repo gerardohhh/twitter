@@ -38,7 +38,6 @@ class APIManager: SessionManager {
                 if let error = error {
                     failure(error)
                 } else if let user = user {
-                    print("Welcome \(String(describing: user.name))")
                     
                     // Set User.current, so that it's persisted
                     User.current = user
@@ -52,8 +51,7 @@ class APIManager: SessionManager {
     
     func logout() {
         clearCredentials()
-        
-        // TODO: Clear current user by setting it to nil
+    
         User.current = nil
         NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
     }

@@ -29,7 +29,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         
         composeTextView.text = "What's happening?"
         composeTextView.textColor = UIColor.darkGray
-        tweetButton.layer.cornerRadius = 15
+        tweetButton.layer.cornerRadius = 17.5
         
         composeTextView.becomeFirstResponder()
     }
@@ -40,10 +40,14 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     }
     
     
-    // Placeholder functionality
+    // Placeholder, disabled button functionality
     func textViewDidBeginEditing(_ textView: UITextView) {
         let newPosition = composeTextView.beginningOfDocument
         composeTextView.selectedTextRange = composeTextView.textRange(from: newPosition, to: newPosition)
+        if !textHasBeenEdited {
+            tweetButton.isEnabled = false
+            tweetButton.alpha = 0.7
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -63,8 +67,12 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         characterCountLabel.text = String(140 - composeTextView.text.characters.count)
         if Int(characterCountLabel.text!)! < 0 {
             characterCountLabel.textColor = UIColor.red
+            tweetButton.isEnabled = false
+            tweetButton.alpha = 0.7
         } else {
             characterCountLabel.textColor = UIColor.darkGray
+            tweetButton.isEnabled = true
+            tweetButton.alpha = 1.0
         }
     }
     
