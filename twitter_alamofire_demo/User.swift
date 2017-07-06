@@ -12,6 +12,11 @@ class User {
     var name: String?
     var screenName: String?
     var iconURL: URL?
+    var location: String?
+    var following: Int?
+    var followers: Int?
+    var verified: Bool?
+    var coverURL: URL?
     
     // For user persistence
     var dictionary: [String: Any]?
@@ -44,6 +49,12 @@ class User {
         screenName = dictionary["screen_name"] as? String
         let iconString = dictionary["profile_image_url_https"] as? String
         iconURL = URL(string: iconString!)
+        location = dictionary["location"] as? String
+        following = dictionary["friends_count"] as? Int
+        followers = dictionary["followers_count"] as? Int
+        verified = dictionary["verified"] as? Bool
+        let coverString = dictionary["profile_banner_url"] as? String
+        coverURL = URL(string: coverString!)
         
         // User persistence
         self.dictionary = dictionary

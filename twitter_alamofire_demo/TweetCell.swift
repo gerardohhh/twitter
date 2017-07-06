@@ -21,6 +21,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var retweetsLabel: UILabel!
     @IBOutlet weak var favoritesLabel: UILabel!
+    @IBOutlet weak var verifiedImage: UIImageView!
     
     var favoriteCount = 0
     var retweetCount = 0
@@ -33,7 +34,7 @@ class TweetCell: UITableViewCell {
             screenNameLabel.text = "@\(poster.screenName!)"
             retweetsLabel.text = String(tweet.retweetCount)
             favoritesLabel.text = String(tweet.favoriteCount ?? 0)
-            timestampLabel.text = "· \(tweet.createdAtString)"
+            timestampLabel.text = " · \(tweet.createdAtString)"
             iconImageView.af_setImage(withURL: poster.iconURL!)
             
             favoriteButton.isSelected = tweet.favorited!
@@ -41,6 +42,9 @@ class TweetCell: UITableViewCell {
             
             favoriteCount = tweet.favoriteCount ?? 0
             retweetCount = tweet.retweetCount
+            if poster.verified! == false {
+                verifiedImage.isHidden = true
+            }
         }
     }
     
@@ -96,8 +100,6 @@ class TweetCell: UITableViewCell {
             APIManager.shared.favorite(tweet) { (tweet: Tweet?, error: Error?) in
                 if let  error = error {
                     print("Error favoriting tweet: \(error.localizedDescription)")
-                } else if let tweet = tweet {
-                    print("Successfully favorited the following Tweet: \n\(tweet.text)")
                 }
             }
         } else {
@@ -106,8 +108,6 @@ class TweetCell: UITableViewCell {
             APIManager.shared.unfavorite(tweet) { (tweet: Tweet?, error: Error?) in
                 if let  error = error {
                     print("Error unfavoriting tweet: \(error.localizedDescription)")
-                } else if let tweet = tweet {
-                    print("Successfully unfavorited the following Tweet: \n\(tweet.text)")
                 }
             }
         }
