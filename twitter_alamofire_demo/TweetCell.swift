@@ -81,8 +81,6 @@ class TweetCell: UITableViewCell {
             APIManager.shared.retweet(tweet) { (tweet: Tweet?, error: Error?) in
                 if let  error = error {
                     print("Error retweeting tweet: \(error.localizedDescription)")
-                } else if let tweet = tweet {
-                    print("Successfully retweeted the following Tweet: \n\(tweet.text)")
                 }
             }
         } else {
@@ -91,8 +89,6 @@ class TweetCell: UITableViewCell {
             APIManager.shared.unretweet(tweet) { (tweet: Tweet?, error: Error?) in
                 if let  error = error {
                     print("Error unretweeting tweet: \(error.localizedDescription)")
-                } else if let tweet = tweet {
-                    print("Successfully unretweeted the following Tweet: \n\(tweet.text)")
                 }
             }
         }

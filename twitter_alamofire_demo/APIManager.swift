@@ -79,15 +79,15 @@ class APIManager: SessionManager {
         
         // This uses tweets from disk to avoid hitting rate limit. Comment out if you want fresh
         // tweets,
-        if let data = UserDefaults.standard.object(forKey: "hometimeline_tweets") as? Data {
-            let tweetDictionaries = NSKeyedUnarchiver.unarchiveObject(with: data) as! [[String: Any]]
-            let tweets = tweetDictionaries.flatMap({ (dictionary) -> Tweet in
-                Tweet(dictionary: dictionary)
-            })
-            
-            completion(tweets, nil)
-            return
-        }
+//        if let data = UserDefaults.standard.object(forKey: "hometimeline_tweets") as? Data {
+//            let tweetDictionaries = NSKeyedUnarchiver.unarchiveObject(with: data) as! [[String: Any]]
+//            let tweets = tweetDictionaries.flatMap({ (dictionary) -> Tweet in
+//                Tweet(dictionary: dictionary)
+//            })
+//            
+//            completion(tweets, nil)
+//            return
+//        }
         
         request(URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, method: .get)
             .validate()
@@ -114,7 +114,7 @@ class APIManager: SessionManager {
         }
     }
     
-    // MARK: TODO: Favorite a Tweet
+    // Favorite a Tweet
     func favorite(_ tweet: Tweet, completion: @escaping (Tweet?, Error?) -> ()) {
         let urlString = "https://api.twitter.com/1.1/favorites/create.json"
         let parameters = ["id": tweet.id]
@@ -129,7 +129,7 @@ class APIManager: SessionManager {
         }
     }
     
-    // MARK: TODO: Un-Favorite a Tweet
+    // Un-Favorite a Tweet
     func unfavorite(_ tweet: Tweet, completion: @escaping (Tweet?, Error?) -> ()) {
         let urlString = "https://api.twitter.com/1.1/favorites/destroy.json"
         let parameters = ["id": tweet.id]
@@ -144,7 +144,7 @@ class APIManager: SessionManager {
         }
     }
     
-    // MARK: TODO: Retweet
+    // Retweet
     func retweet(_ tweet: Tweet, completion: @escaping (Tweet?, Error?) -> ()) {
         let urlString = "https://api.twitter.com/1.1/statuses/retweet.json"
         let parameters = ["id": tweet.id]
@@ -159,7 +159,7 @@ class APIManager: SessionManager {
         }
     }
     
-    // MARK: TODO: Un-Retweet
+    // Un-Retweet
     func unretweet(_ tweet: Tweet, completion: @escaping (Tweet?, Error?) -> ()) {
         let urlString = "https://api.twitter.com/1.1/statuses/unretweet.json"
         let parameters = ["id": tweet.id]
@@ -174,7 +174,7 @@ class APIManager: SessionManager {
         }
     }
     
-    // MARK: TODO: Compose Tweet
+    // Compose Tweet
     func composeTweet(with text: String, completion: @escaping (Tweet?, Error?) -> ()) {
         let urlString = "https://api.twitter.com/1.1/statuses/update.json"
         let parameters = ["status": text]
@@ -187,8 +187,29 @@ class APIManager: SessionManager {
         }
     }
     
-    // MARK: TODO: Get User Timeline
-    
+    // Get User Timeline
+    func getUserTimeLine(with id: String, completion: @escaping ([Tweet]?, Error?) -> ()) {
+        let baseUrl = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="
+        request(URL(string: baseUrl + id)!, method: .get)
+            .validate()
+            .responseJSON { (response) in
+                guard response.result.isSuccess else {
+                    completion(nil, response.result.error)
+                    return
+                }
+                guard let tweetDictionaries = response.result.value as? [[String: Any]] else {
+                    print("Failed to parse tweets")
+                    let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Failed to parse tweets"])
+                    completion(nil, error)
+                    return
+                }
+                
+                let tweets = tweetDictionaries.flatMap({ (dictionary) -> Tweet in
+                    Tweet(dictionary: dictionary)
+                })
+                completion(tweets, nil)
+        }
+    }
     
     //--------------------------------------------------------------------------------//
     

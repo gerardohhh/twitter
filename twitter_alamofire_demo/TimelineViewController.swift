@@ -25,7 +25,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 130
         
         APIManager.shared.getHomeTimeLine { (tweets, error) in
             if let tweets = tweets {
@@ -82,10 +82,18 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let composeViewController = segue.destination as! ComposeViewController
-        composeViewController.delegate = self
+        if segue.identifier == "ComposeSegue" {
+            let composeViewController = segue.destination as! ComposeViewController
+            composeViewController.delegate = self
+        } else {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                let tweet = tweets[indexPath.row]
+                let tweetViewController = segue.destination as! TweetViewController
+                tweetViewController.tweet = tweet
+            }
+        }
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
