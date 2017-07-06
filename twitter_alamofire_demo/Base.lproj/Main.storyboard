@@ -387,11 +387,13 @@
             </objects>
             <point key="canvasLocation" x="3405.5999999999999" y="35.532233883058474"/>
         </scene>
-        <!--Timeline-->
+        <!--Navigation Controller-->
         <scene sceneID="WXZ-z8-8LI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RFK-Vv-pWW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Timeline" image="home-icon" id="aWV-2C-ATK"/>
+                    <tabBarItem key="tabBarItem" title="" image="home-icon" id="aWV-2C-ATK">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="COb-xK-t9O">
@@ -417,6 +419,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.29848086829999998" green="0.61769455669999995" blue="0.92161810399999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="RFK-Vv-pWW" kind="relationship" relationship="viewControllers" id="JGQ-wl-iBz"/>
@@ -427,7 +430,7 @@
             </objects>
             <point key="canvasLocation" x="860" y="36.431784107946029"/>
         </scene>
-        <!--Profile-->
+        <!--Profile View Controller-->
         <scene sceneID="qB1-5Y-wph">
             <objects>
                 <viewController id="Okv-wf-AO0" customClass="ProfileViewController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -440,13 +443,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qGr-l8-vUR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                <rect key="frame" x="0.0" y="-20" width="375" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="26e-cP-chy"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W77-en-D5D">
-                                <rect key="frame" x="15" y="87.5" width="75" height="75"/>
+                                <rect key="frame" x="15" y="67.5" width="75" height="75"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="aq8-Y5-KZ3"/>
@@ -454,60 +457,60 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IhH-r1-k84">
-                                <rect key="frame" x="20" y="92.5" width="65" height="65"/>
+                                <rect key="frame" x="20" y="72.5" width="65" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="dMn-QM-Ib4"/>
                                     <constraint firstAttribute="height" constant="65" id="r8f-bQ-mWh"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHK-CB-B9F">
-                                <rect key="frame" x="15" y="162.5" width="139" height="26.5"/>
+                                <rect key="frame" x="15" y="142.5" width="139" height="26.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@screenname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52u-IQ-bGR">
-                                <rect key="frame" x="15" y="187" width="94" height="17.5"/>
+                                <rect key="frame" x="15" y="167" width="94" height="17.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location, USA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3np-2u-Bge">
-                                <rect key="frame" x="15" y="205.5" width="97" height="17.5"/>
+                                <rect key="frame" x="15" y="185.5" width="97" height="17.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEe-sw-NFw">
-                                <rect key="frame" x="15" y="224" width="9" height="18"/>
+                                <rect key="frame" x="15" y="204" width="9" height="18"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BO3-7m-tIw">
-                                <rect key="frame" x="28" y="224" width="65" height="18"/>
+                                <rect key="frame" x="28" y="204" width="65" height="18"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwT-Nn-Qqo">
-                                <rect key="frame" x="123" y="224" width="9" height="18"/>
+                                <rect key="frame" x="123" y="204" width="9" height="18"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ar-Rv-K20">
-                                <rect key="frame" x="136" y="223.5" width="65" height="18"/>
+                                <rect key="frame" x="136" y="203.5" width="65" height="18"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c5P-eL-B0w">
-                                <rect key="frame" x="0.0" y="272" width="375" height="346"/>
+                                <rect key="frame" x="0.0" y="252" width="375" height="366"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="verified-icon" translatesAutoresizingMaskIntoConstraints="NO" id="w72-mB-IhE">
-                                <rect key="frame" x="159" y="166" width="20" height="20"/>
+                                <rect key="frame" x="159" y="146" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="ckc-yD-cOh"/>
                                     <constraint firstAttribute="width" constant="20" id="lia-WQ-GcB"/>
@@ -527,7 +530,7 @@
                             <constraint firstItem="w72-mB-IhE" firstAttribute="centerY" secondItem="QHK-CB-B9F" secondAttribute="centerY" id="Ebv-YQ-WvP"/>
                             <constraint firstItem="QHK-CB-B9F" firstAttribute="top" secondItem="IhH-r1-k84" secondAttribute="bottom" constant="5" id="Fe0-U2-7dG"/>
                             <constraint firstItem="cwT-Nn-Qqo" firstAttribute="centerY" secondItem="BO3-7m-tIw" secondAttribute="centerY" id="IQt-ge-s9f"/>
-                            <constraint firstItem="qGr-l8-vUR" firstAttribute="top" secondItem="ZxE-HO-Dgz" secondAttribute="bottom" id="MoX-Rf-cWy"/>
+                            <constraint firstItem="qGr-l8-vUR" firstAttribute="top" secondItem="ZxE-HO-Dgz" secondAttribute="bottom" constant="-20" id="MoX-Rf-cWy"/>
                             <constraint firstItem="CEe-sw-NFw" firstAttribute="top" secondItem="3np-2u-Bge" secondAttribute="bottom" constant="1" id="OKR-eu-qeC"/>
                             <constraint firstItem="QHK-CB-B9F" firstAttribute="leading" secondItem="fWs-wZ-VZU" secondAttribute="leading" constant="15" id="OwN-JI-zuV"/>
                             <constraint firstItem="3np-2u-Bge" firstAttribute="top" secondItem="52u-IQ-bGR" secondAttribute="bottom" constant="1" id="PHC-Qs-Dcs"/>
@@ -548,7 +551,9 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="52u-IQ-bGR" secondAttribute="trailing" constant="15" id="wIu-RS-UaL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="profile-Icon" id="faq-nO-jsi"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile-Icon" id="faq-nO-jsi">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="iGS-Qt-DJr">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="hz2-ji-ft0">
                             <connections>
