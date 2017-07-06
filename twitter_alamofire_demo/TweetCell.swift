@@ -22,6 +22,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var retweetsLabel: UILabel!
     @IBOutlet weak var favoritesLabel: UILabel!
     @IBOutlet weak var verifiedImage: UIImageView!
+    @IBOutlet weak var verifiedLeading: NSLayoutConstraint!
+    @IBOutlet weak var verifiedWidth: NSLayoutConstraint!
     
     var favoriteCount = 0
     var retweetCount = 0
@@ -42,8 +44,13 @@ class TweetCell: UITableViewCell {
             
             favoriteCount = tweet.favoriteCount ?? 0
             retweetCount = tweet.retweetCount
-            if poster.verified! == false {
-                verifiedImage.isHidden = true
+            
+            if !(poster.verified!) {
+                verifiedLeading.constant = 0
+                verifiedWidth.constant = 0
+            } else {
+                verifiedLeading.constant = 3
+                verifiedWidth.constant = 14
             }
         }
     }

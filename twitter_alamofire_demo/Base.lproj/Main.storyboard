@@ -258,6 +258,8 @@
                                             <outlet property="timestampLabel" destination="aGJ-Cs-xd5" id="7wH-zj-8Ei"/>
                                             <outlet property="tweetTextLabel" destination="epC-Fs-Q5Z" id="ZLP-IG-Wsf"/>
                                             <outlet property="verifiedImage" destination="XPO-Dd-rlg" id="Tbb-Hu-5Vq"/>
+                                            <outlet property="verifiedLeading" destination="7nu-3z-JQN" id="ede-A8-k3E"/>
+                                            <outlet property="verifiedWidth" destination="G7N-GP-4db" id="r8w-1F-rxF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -286,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlF-i2-Ves" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2599.1999999999998" y="36.431784107946029"/>
+            <point key="canvasLocation" x="2559" y="36"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="n17-xj-WIs">
@@ -397,18 +399,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                            <color key="value" red="0.29848086833953857" green="0.61769455671310425" blue="0.92161810398101807" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="5YO-Vh-39k" kind="relationship" relationship="rootViewController" id="8h2-zX-ELo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHk-jg-Lk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1799.2" y="36.431784107946029"/>
+            <point key="canvasLocation" x="1689" y="36"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4Zg-fK-e9J">
@@ -421,11 +418,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                            <color key="value" red="0.29848086833953857" green="0.61769455671310425" blue="0.92161810398101807" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="RFK-Vv-pWW" kind="relationship" relationship="viewControllers" id="JGQ-wl-iBz"/>
                         <segue destination="Okv-wf-AO0" kind="relationship" relationship="viewControllers" id="0HV-7Q-ArD"/>
@@ -454,15 +446,15 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W77-en-D5D">
-                                <rect key="frame" x="15" y="90" width="70" height="70"/>
+                                <rect key="frame" x="15" y="87.5" width="75" height="75"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="aq8-Y5-KZ3"/>
-                                    <constraint firstAttribute="height" constant="70" id="loH-LK-Zss"/>
+                                    <constraint firstAttribute="width" constant="75" id="aq8-Y5-KZ3"/>
+                                    <constraint firstAttribute="height" constant="75" id="loH-LK-Zss"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IhH-r1-k84">
-                                <rect key="frame" x="17.5" y="92.5" width="65" height="65"/>
+                                <rect key="frame" x="20" y="92.5" width="65" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="dMn-QM-Ib4"/>
                                     <constraint firstAttribute="height" constant="65" id="r8f-bQ-mWh"/>
@@ -578,7 +570,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47m-2N-ijg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="837.93103448275872"/>
+            <point key="canvasLocation" x="860" y="811"/>
         </scene>
     </scenes>
     <resources>

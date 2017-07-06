@@ -26,8 +26,8 @@ class ProfileViewController: UIViewController {
 
         let user = User.current
         
-        iconBorder.layer.cornerRadius = 34
-        iconImage.layer.cornerRadius = 32.5
+        iconBorder.layer.cornerRadius = iconBorder.frame.width / 2
+        iconImage.layer.cornerRadius = iconImage.frame.width / 2
         
         iconImage.af_setImage(withURL: (user?.iconURL)!)
         coverImage.af_setImage(withURL: (user?.coverURL)!)
