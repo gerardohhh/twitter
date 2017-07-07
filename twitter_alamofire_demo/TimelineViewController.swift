@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate {
+class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate, TweetCellDelegate {
     
     var tweets: [Tweet] = []
     
@@ -51,6 +51,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
         
         cell.tweet = tweets[indexPath.row]
+        cell.delegate = self
         cell.separatorInset = UIEdgeInsets.zero
         
         return cell
@@ -81,17 +82,25 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.reloadData()
     }
     
+    func tweetCell(_ tweetCell: TweetCell, didTap user: User) {
+        performSegue(withIdentifier: "ProfileSegue", sender: user)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ComposeSegue" {
             let composeViewController = segue.destination as! ComposeViewController
             composeViewController.delegate = self
-        } else {
+        } else if segue.identifier == "DetailSegue"{
             let cell = sender as! UITableViewCell
             if let indexPath = tableView.indexPath(for: cell) {
                 let tweet = tweets[indexPath.row]
                 let tweetViewController = segue.destination as! TweetViewController
                 tweetViewController.tweet = tweet
             }
+        } else if segue.identifier == "ProfileSegue" {
+            let profileViewController = segue.destination as! ProfileViewController
+            profileViewController.fromTimeline = true
+            profileViewController.user = sender as? User
         }
     }
     override func didReceiveMemoryWarning() {

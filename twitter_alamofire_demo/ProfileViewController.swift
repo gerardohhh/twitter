@@ -22,9 +22,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     
     var tweets: [Tweet] = []
     var user: User? = nil
+    var fromTimeline: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         logOutButton.layer.borderColor = logOutButton.currentTitleColor.cgColor
         logOutButton.layer.cornerRadius = logOutButton.frame.height / 2
 
-        user = User.current
+        if !fromTimeline {
+            user = User.current
+        }
         
         iconBorder.layer.cornerRadius = iconBorder.frame.width / 2
         iconImage.layer.cornerRadius = iconImage.frame.width / 2
@@ -57,6 +61,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         if (user?.verified)! {
             verifiedImage.isHidden = false
         }
+        
+        if fromTimeline {
+            logOutButton.isHidden = true
+        } else {
+            logOutButton.isHidden = false
+        }
+        closeButton.isHidden = !logOutButton.isHidden
         
         APIManager.shared.getUserTimeLine(with: (user?.screenName)!) { (tweets, error) in
             if let tweets = tweets {
@@ -86,6 +97,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func didTapLogout(_ sender: Any) {
         APIManager.shared.logout()
+    }
+    
+    @IBAction func didTapClose(_ sender: Any) {
+        dismiss(animated: true)
     }
 
     override func didReceiveMemoryWarning() {

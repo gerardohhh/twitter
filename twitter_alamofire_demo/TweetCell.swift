@@ -9,7 +9,13 @@
 import UIKit
 import AlamofireImage
 
+protocol TweetCellDelegate: class {
+    func tweetCell(_ tweetCell: TweetCell, didTap user: User)
+}
+
 class TweetCell: UITableViewCell {
+    
+    weak var delegate: TweetCellDelegate?
     
     @IBOutlet weak var tweetTextLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
@@ -114,5 +120,9 @@ class TweetCell: UITableViewCell {
                 }
             }
         }
+    }
+    
+    @IBAction func didTapUser(_ sender: Any) {
+        delegate?.tweetCell(self, didTap: tweet.user)
     }
 }
