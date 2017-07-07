@@ -35,40 +35,57 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 130
+
+        // Toggle views based on user
+        if fromTimeline {
+            logOutButton.isHidden = true
+        } else {
+            user = User.current
+            logOutButton.isHidden = false
+        }
         
+        // Format log out button
         logOutButton.layer.borderWidth = 1
         logOutButton.layer.borderColor = logOutButton.currentTitleColor.cgColor
         logOutButton.layer.cornerRadius = logOutButton.frame.height / 2
-
-        if !fromTimeline {
-            user = User.current
-        }
-        
+        // Format images
         iconBorder.layer.cornerRadius = iconBorder.frame.width / 2
         iconImage.layer.cornerRadius = iconImage.frame.width / 2
+        // Change close button tint
+        let origImage = UIImage(named: "close-icon")
+        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
+        closeButton.setImage(tintedImage, for: .normal)
+        closeButton.tintColor = UIColor.white
+        closeButton.isHidden = !logOutButton.isHidden
         
+        
+        // Set profile data
         iconImage.af_setImage(withURL: (user?.iconURL)!)
         coverImage.af_setImage(withURL: (user?.coverURL)!)
         nameLabel.text = user?.name
         let username = user?.screenName!
         screenNameLabel.text = "@\(username!)"
         locationLabel.text = user?.location
-        followingCount.text = String((user?.following!)!)
-        followerCount.text = String((user?.followers!)!)
+        
+        // Add commas to large follower numbers
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        let formattedFollowers = numberFormatter.string(from: NSNumber(value: (user?.followers)!))!
+        let formattedFollowing = numberFormatter.string(from: NSNumber(value: (user?.following)!))!
+        followingCount.text = String(formattedFollowing)
+        followerCount.text = String(formattedFollowers)
+        // Proper number grammar
         if user?.followers! == 1 {
             followersLabel.text = "Follower"
         }
+        
+        // Verified icon
         if (user?.verified)! {
             verifiedImage.isHidden = false
         }
         
-        if fromTimeline {
-            logOutButton.isHidden = true
-        } else {
-            logOutButton.isHidden = false
-        }
-        closeButton.isHidden = !logOutButton.isHidden
         
+        // Fetch tweets
         APIManager.shared.getUserTimeLine(with: (user?.screenName)!) { (tweets, error) in
             if let tweets = tweets {
                 self.tweets = tweets

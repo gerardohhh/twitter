@@ -39,7 +39,7 @@ class Tweet {
         // Convert String to Date
         let date = formatter.date(from: createdAtOriginalString)!
         // Configure output format
-        formatter.dateStyle = .short
+        formatter.dateStyle = .medium
         formatter.timeStyle = .none
         // Convert Date to String
         createdAtString = formatter.string(from: date)

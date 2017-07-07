@@ -395,33 +395,31 @@
                                     <constraint firstAttribute="height" constant="1" id="iOg-hc-Pw9"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQa-87-4Uk">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQa-87-4Uk">
                                 <rect key="frame" x="60" y="222.5" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="0kc-Uv-Bsf"/>
                                     <constraint firstAttribute="height" constant="45" id="b7P-Ls-7qW"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Reply" image="reply-icon"/>
+                                <state key="normal" image="reply-icon"/>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmy-tq-cWy">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmy-tq-cWy">
                                 <rect key="frame" x="270" y="222.5" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="joX-It-5lr"/>
                                     <constraint firstAttribute="height" constant="45" id="yd9-dJ-HL8"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="9" minY="-1" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Favorite" image="favor-icon"/>
+                                <inset key="imageEdgeInsets" minX="1" minY="-1" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" image="favor-icon"/>
                                 <state key="selected" image="favor-icon-red"/>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rB-WI-0aY">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rB-WI-0aY">
                                 <rect key="frame" x="165" y="222" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="cdg-Rd-cfb"/>
                                     <constraint firstAttribute="height" constant="45" id="lh0-qi-OLQ"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Retweet" image="retweet-icon"/>
+                                <state key="normal" image="retweet-icon"/>
                                 <state key="selected" image="retweet-icon-green"/>
                             </button>
                         </subviews>
@@ -435,15 +433,14 @@
                             <constraint firstAttribute="trailing" secondItem="9Pe-Xv-bao" secondAttribute="trailing" constant="20" id="E9g-XF-g9B"/>
                             <constraint firstItem="7RY-9P-mDr" firstAttribute="top" secondItem="GlT-77-iuB" secondAttribute="bottom" id="ETs-5I-VAV"/>
                             <constraint firstItem="rPo-pK-mwX" firstAttribute="centerY" secondItem="Kis-Zl-kDt" secondAttribute="centerY" id="F9D-bi-FJm"/>
-                            <constraint firstItem="ERP-RO-a01" firstAttribute="top" secondItem="QcD-0H-sq2" secondAttribute="bottom" id="GCO-ge-02k"/>
                             <constraint firstItem="OGy-m4-Rax" firstAttribute="leading" secondItem="CQ5-Md-zAc" secondAttribute="leading" id="Ii3-8h-XEC"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OGy-m4-Rax" secondAttribute="trailing" constant="15" id="JkN-ct-8tB"/>
                             <constraint firstItem="9Pe-Xv-bao" firstAttribute="leading" secondItem="Jf1-7F-rQN" secondAttribute="leading" constant="15" id="Jkv-rs-2kz"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="nwZ-Aj-ZdM" secondAttribute="bottom" constant="514" id="KHA-gf-42M"/>
                             <constraint firstItem="9rB-WI-0aY" firstAttribute="centerY" secondItem="gQa-87-4Uk" secondAttribute="centerY" id="Mav-sf-tVv"/>
                             <constraint firstItem="ERP-RO-a01" firstAttribute="leading" secondItem="QcD-0H-sq2" secondAttribute="leading" id="NdW-O1-xwu"/>
                             <constraint firstItem="bsm-a6-vlf" firstAttribute="centerY" secondItem="5xf-IC-bJX" secondAttribute="centerY" id="Oc9-N3-2d6"/>
                             <constraint firstItem="GlT-77-iuB" firstAttribute="top" secondItem="kmy-tq-cWy" secondAttribute="bottom" id="V0j-Sa-2ed"/>
+                            <constraint firstItem="ERP-RO-a01" firstAttribute="top" secondItem="QcD-0H-sq2" secondAttribute="bottom" id="VPS-tH-pnD"/>
                             <constraint firstItem="rPo-pK-mwX" firstAttribute="leading" secondItem="Kis-Zl-kDt" secondAttribute="trailing" constant="5" id="XJj-GS-kft"/>
                             <constraint firstAttribute="trailing" secondItem="kmy-tq-cWy" secondAttribute="trailing" constant="60" id="XNp-Qr-vjX"/>
                             <constraint firstItem="mWv-gS-6vv" firstAttribute="leading" secondItem="OGy-m4-Rax" secondAttribute="leading" id="XeL-NJ-aag"/>
@@ -886,7 +883,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTF-jB-JUW">
-                                <rect key="frame" x="330" y="20" width="45" height="45"/>
+                                <rect key="frame" x="330" y="15" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="TfM-j9-QCO"/>
                                     <constraint firstAttribute="height" constant="45" id="azf-Wg-ws1"/>
@@ -897,6 +894,14 @@
                                     <action selector="didTapClose:" destination="Okv-wf-AO0" eventType="touchUpInside" id="Y45-HT-P3k"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4y-0O-u65">
+                                <rect key="frame" x="282" y="174" width="78" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="7ro-pn-JqF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Following"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -905,7 +910,7 @@
                             <constraint firstItem="QHK-CB-B9F" firstAttribute="leading" secondItem="W77-en-D5D" secondAttribute="leading" id="2xL-Cn-CBL"/>
                             <constraint firstItem="BO3-7m-tIw" firstAttribute="leading" secondItem="CEe-sw-NFw" secondAttribute="trailing" constant="4" id="4K1-dL-85z"/>
                             <constraint firstItem="JYr-2A-R63" firstAttribute="top" secondItem="RQY-0d-s0x" secondAttribute="bottom" constant="14" id="5I8-0d-TNx"/>
-                            <constraint firstItem="yTF-jB-JUW" firstAttribute="top" secondItem="ZxE-HO-Dgz" secondAttribute="bottom" id="6xJ-xD-6gv"/>
+                            <constraint firstItem="yTF-jB-JUW" firstAttribute="top" secondItem="ZxE-HO-Dgz" secondAttribute="bottom" constant="-5" id="6xJ-xD-6gv"/>
                             <constraint firstItem="W77-en-D5D" firstAttribute="centerY" secondItem="qGr-l8-vUR" secondAttribute="bottom" constant="10" id="9Oz-hw-ZmK"/>
                             <constraint firstItem="BO3-7m-tIw" firstAttribute="centerY" secondItem="CEe-sw-NFw" secondAttribute="centerY" id="9ie-Oh-8ND"/>
                             <constraint firstAttribute="trailing" secondItem="c5P-eL-B0w" secondAttribute="trailing" id="AIO-ma-4E1"/>
