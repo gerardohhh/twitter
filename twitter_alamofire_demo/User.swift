@@ -17,6 +17,7 @@ class User {
     var followers: Int?
     var verified: Bool?
     var coverURL: URL?
+    var isFollowing: Bool?
     
     // For user persistence
     var dictionary: [String: Any]?
@@ -47,7 +48,8 @@ class User {
     init(dictionary: [String: Any]) {
         name = dictionary["name"] as? String
         screenName = dictionary["screen_name"] as? String
-        let iconString = dictionary["profile_image_url_https"] as? String
+        var iconString = dictionary["profile_image_url_https"] as? String
+        iconString = String((iconString?.characters.dropLast(11))!) + ".jpg"
         iconURL = URL(string: iconString!)
         location = dictionary["location"] as? String
         following = dictionary["friends_count"] as? Int
@@ -55,6 +57,7 @@ class User {
         verified = dictionary["verified"] as? Bool
         let coverString = dictionary["profile_banner_url"] as? String
         coverURL = URL(string: coverString!)
+        isFollowing = dictionary["following"] as? Bool
         
         // User persistence
         self.dictionary = dictionary

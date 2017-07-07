@@ -48,6 +48,8 @@ class TweetCell: UITableViewCell {
             favoriteButton.isSelected = tweet.favorited!
             retweetButton.isSelected = tweet.retweeted
             
+            print(poster.iconURL!)
+            
             favoriteCount = tweet.favoriteCount ?? 0
             retweetCount = tweet.retweetCount
             

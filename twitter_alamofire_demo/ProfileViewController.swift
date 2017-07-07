@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var followingButton: UIButton!
     
     var tweets: [Tweet] = []
     var user: User? = nil
@@ -37,17 +38,28 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.estimatedRowHeight = 130
 
         // Toggle views based on user
-        if fromTimeline {
-            logOutButton.isHidden = true
-        } else {
+        if !fromTimeline {
             user = User.current
-            logOutButton.isHidden = false
         }
+        logOutButton.isHidden = fromTimeline
+        followingButton.isHidden = !fromTimeline
         
-        // Format log out button
+        // Format log out, following buttons
         logOutButton.layer.borderWidth = 1
         logOutButton.layer.borderColor = logOutButton.currentTitleColor.cgColor
         logOutButton.layer.cornerRadius = logOutButton.frame.height / 2
+        
+        if (user?.isFollowing)! {
+            followingButton.backgroundColor = logOutButton.currentTitleColor
+            followingButton.setTitleColor(UIColor.white, for: .normal)
+        } else if user?.screenName == User.current?.screenName {
+            followingButton.isHidden = true
+        } else {
+            followingButton.layer.borderWidth = 1
+            followingButton.layer.borderColor = logOutButton.currentTitleColor.cgColor
+            followingButton.setTitle("Follow", for: .normal)
+        }
+        followingButton.layer.cornerRadius = followingButton.frame.height / 2
         // Format images
         iconBorder.layer.cornerRadius = iconBorder.frame.width / 2
         iconImage.layer.cornerRadius = iconImage.frame.width / 2
