@@ -15,8 +15,8 @@ import KeychainAccess
 class APIManager: SessionManager {
     
     // MARK: TODO: Add App Keys
-    static let consumerKey = "KTEQfOPrl7xEgSqPjMeB69Phb"
-    static let consumerSecret = "VSoTfow608DzLZHDmSFPfmUCRPzI5E1kT3TmxEYiUcZAfTqXmU"
+    static let consumerKey = "xnNbaZyoFY4Qevf5AbwpRYux3"
+    static let consumerSecret = "Nfs2z5sGa2bjdq2akoVRnxXlhb6swLrHqboZzIsbsrpZlL9VYG"
     
     static let requestTokenURL = "https://api.twitter.com/oauth/request_token"
     static let authorizeURL = "https://api.twitter.com/oauth/authorize"
@@ -88,7 +88,7 @@ class APIManager: SessionManager {
 //            completion(tweets, nil)
 //            return
 //        }
-        
+
         request(URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, method: .get)
             .validate()
             .responseJSON { (response) in
@@ -207,6 +207,7 @@ class APIManager: SessionManager {
                 let tweets = tweetDictionaries.flatMap({ (dictionary) -> Tweet in
                     Tweet(dictionary: dictionary)
                 })
+                
                 completion(tweets, nil)
         }
     }

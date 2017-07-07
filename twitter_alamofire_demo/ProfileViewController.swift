@@ -108,6 +108,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets.count
     }
@@ -122,6 +126,21 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.layoutMargins = UIEdgeInsets.zero
 
         return cell
+    }
+    
+    @IBAction func didTapFollowing(_ sender: Any) {
+        if followingButton.currentTitle == "Follow" {
+            followingButton.backgroundColor = logOutButton.currentTitleColor
+            followingButton.setTitleColor(UIColor.white, for: .normal)
+            followingButton.setTitle("Following", for: .normal)
+        } else {
+            followingButton.layer.borderWidth = 1
+            followingButton.layer.borderColor = logOutButton.currentTitleColor.cgColor
+            let titleColor = followingButton.layer.borderColor
+            followingButton.setTitleColor(UIColor(cgColor: titleColor!), for: .normal)
+            followingButton.layer.backgroundColor = UIColor.clear.cgColor
+            followingButton.setTitle("Follow", for: .normal)
+        }
     }
     
     @IBAction func didTapLogout(_ sender: Any) {

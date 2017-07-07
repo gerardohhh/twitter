@@ -98,7 +98,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 tweetViewController.tweet = tweet
             }
         } else if segue.identifier == "ProfileSegue" {
-            let profileViewController = segue.destination as! ProfileViewController
+            let profileViewController = segue.destination as! ProfileScrollableViewController
             profileViewController.fromTimeline = true
             profileViewController.user = sender as? User
         }
