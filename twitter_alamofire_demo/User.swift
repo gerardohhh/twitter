@@ -49,7 +49,11 @@ class User {
         name = dictionary["name"] as? String
         screenName = dictionary["screen_name"] as? String
         var iconString = dictionary["profile_image_url_https"] as? String
-        iconString = String((iconString?.characters.dropLast(10))!) + "bigger.jpg"
+        if String((iconString?.characters.suffix(4))!) == "jpeg" {
+            iconString = String((iconString?.characters.dropLast(12))!) + ".jpeg"
+        } else {
+            iconString = String((iconString?.characters.dropLast(11))!) + ".jpg"
+        }
         iconURL = URL(string: iconString!)
         location = dictionary["location"] as? String
         following = dictionary["friends_count"] as? Int
