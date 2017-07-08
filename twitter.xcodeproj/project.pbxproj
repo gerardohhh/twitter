@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261A83ECD9C31B3637A405ED /* Pods_twitterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2AD9D832104973D12E947A /* Pods_twitterUITests.framework */; };
 		7E23B3C01F0F40500078B7DF /* ProfileScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E23B3BF1F0F40500078B7DF /* ProfileScrollableViewController.swift */; };
 		7E48F7121F0B497300CBAC27 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E48F7111F0B497300CBAC27 /* ProfileViewController.swift */; };
 		7ED1E6911F0EDF80005C21F5 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1E6901F0EDF80005C21F5 /* TweetViewController.swift */; };
@@ -14,6 +15,7 @@
 		7EED2E0C1F0D96280031B7E3 /* Pods_twitterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EED2E0B1F0D96280031B7E3 /* Pods_twitterUITests.framework */; };
 		7EED2E0E1F0D963C0031B7E3 /* Pods_twitterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EED2E0D1F0D963C0031B7E3 /* Pods_twitterTests.framework */; };
 		CDC4C7B968C511138FE86B42 /* Pods_twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C9406CF4534FE4DC39519E /* Pods_twitter.framework */; };
+		CFC0D7A8BC68EF232D1E39D2 /* Pods_twitterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AD661F24287ED7AFEC86D3 /* Pods_twitterTests.framework */; };
 		ED1AFD311E942B2500FD4B90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1AFD301E942B2500FD4B90 /* AppDelegate.swift */; };
 		ED1AFD361E942B2500FD4B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1AFD341E942B2500FD4B90 /* Main.storyboard */; };
 		ED1AFD381E942B2500FD4B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1AFD371E942B2500FD4B90 /* Assets.xcassets */; };
@@ -47,7 +49,9 @@
 
 /* Begin PBXFileReference section */
 		0D5865F727957A8E690625B6 /* Pods-twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.debug.xcconfig"; sourceTree = "<group>"; };
+		0F2AD9D832104973D12E947A /* Pods_twitterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C9406CF4534FE4DC39519E /* Pods_twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77AD661F24287ED7AFEC86D3 /* Pods_twitterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E23B3BF1F0F40500078B7DF /* ProfileScrollableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScrollableViewController.swift; sourceTree = "<group>"; };
 		7E48F7111F0B497300CBAC27 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7ED1E6901F0EDF80005C21F5 /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFC0D7A8BC68EF232D1E39D2 /* Pods_twitterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261A83ECD9C31B3637A405ED /* Pods_twitterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +120,8 @@
 				7EED2E0D1F0D963C0031B7E3 /* Pods_twitterTests.framework */,
 				7EED2E0B1F0D96280031B7E3 /* Pods_twitterUITests.framework */,
 				15C9406CF4534FE4DC39519E /* Pods_twitter.framework */,
+				77AD661F24287ED7AFEC86D3 /* Pods_twitterTests.framework */,
+				0F2AD9D832104973D12E947A /* Pods_twitterUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

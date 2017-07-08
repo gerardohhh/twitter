@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ActiveLabel
 
 class TweetViewController: UIViewController {
 
@@ -14,12 +15,14 @@ class TweetViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var verifiedIcon: UIImageView!
     @IBOutlet weak var screenNameLabel: UILabel!
-    @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var tweetLabel: ActiveLabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var retweetCount: UILabel!
     @IBOutlet weak var favoriteCount: UILabel!
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var mediaImage: UIImageView!
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
     
     var tweet: Tweet? = nil
     
@@ -32,6 +35,7 @@ class TweetViewController: UIViewController {
         ]
 
         iconImage.layer.cornerRadius = iconImage.frame.height / 2
+        mediaImage.layer.cornerRadius = 10
         
         let poster: User = (tweet?.user)!
         
@@ -46,9 +50,17 @@ class TweetViewController: UIViewController {
         
         tweetLabel.text = tweet?.text
         timestampLabel.text = tweet?.createdAtString
+        tweetLabel.handleURLTap { url in UIApplication.shared.open(url) }
         
         retweetCount.text = String((tweet?.retweetCount)!)
         favoriteCount.text = String((tweet?.favoriteCount)!)
+        
+        if tweet?.mediaUrl != nil {
+            mediaImage.af_setImage(withURL: (tweet?.mediaUrl!)!)
+            imageHeight.constant = 200
+        } else {
+            imageHeight.constant = 0
+        }
         
         if (tweet?.retweeted)! {
             retweetButton.isSelected = true

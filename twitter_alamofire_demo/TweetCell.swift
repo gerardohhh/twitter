@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import ActiveLabel
 
 protocol TweetCellDelegate: class {
     func tweetCell(_ tweetCell: TweetCell, didTap user: User)
@@ -17,7 +18,7 @@ class TweetCell: UITableViewCell {
     
     weak var delegate: TweetCellDelegate?
     
-    @IBOutlet weak var tweetTextLabel: UILabel!
+    @IBOutlet weak var tweetTextLabel: ActiveLabel!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
@@ -30,6 +31,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var verifiedImage: UIImageView!
     @IBOutlet weak var verifiedLeading: NSLayoutConstraint!
     @IBOutlet weak var verifiedWidth: NSLayoutConstraint!
+    @IBOutlet weak var mediaImage: UIImageView!
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
     
     var favoriteCount = 0
     var retweetCount = 0
@@ -37,6 +40,8 @@ class TweetCell: UITableViewCell {
     var tweet: Tweet! {
         didSet {
             tweetTextLabel.text = tweet.text
+            tweetTextLabel.handleURLTap { url in UIApplication.shared.open(url) }
+            
             let poster = tweet.user
             nameLabel.text = poster.name
             screenNameLabel.text = "@\(poster.screenName!)"
@@ -50,6 +55,13 @@ class TweetCell: UITableViewCell {
             
             favoriteCount = tweet.favoriteCount ?? 0
             retweetCount = tweet.retweetCount
+            
+            if tweet.mediaUrl != nil {
+                mediaImage.af_setImage(withURL: tweet.mediaUrl!)
+                imageHeight.constant = 200
+            } else {
+                imageHeight.constant = 0
+            }
             
             if !(poster.verified!) {
                 verifiedLeading.constant = 0
@@ -65,6 +77,7 @@ class TweetCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         iconImageView.layer.cornerRadius = 22.5
+        mediaImage.layer.cornerRadius = 10
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

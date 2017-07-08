@@ -113,7 +113,7 @@ class ProfileScrollableViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTweet") as! TweetCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell") as! TweetCell
         
         cell.tweet = tweets[indexPath.row]
         

@@ -19,6 +19,7 @@ class Tweet {
     var retweeted: Bool // Configure retweet button
     var user: User // Contains name, screenname, etc. of tweet author
     var createdAtString: String // Display date
+    var mediaUrl: URL? // Media url
     
     // For Retweets
     var retweetedByUser: User?  // user who retweeted if tweet is retweet
@@ -36,6 +37,13 @@ class Tweet {
         
         let user = dictionary["user"] as! [String: Any]
         self.user = User(dictionary: user)
+        
+        let entities =  dictionary["entities"] as! [String: Any]
+        if let media = entities["media"] as? [[String: Any]] {
+            let mediaObj = media[0]
+            let mediaURL = mediaObj["media_url_https"]
+            mediaUrl = URL(string: (mediaURL as? String)!)
+        }
         
         let createdAtOriginalString = dictionary["created_at"] as! String
         let formatter = DateFormatter()
